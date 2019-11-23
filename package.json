@@ -1,0 +1,27 @@
+{
+  "name": "root",
+  "private": true,
+  "author": "jaeyoung.choi <lactrious@gmail.com>",
+  "homepage": "https://toolkit.yyt.life/nodejs",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^24.0.15",
+    "@types/node": "^10.14.12",
+    "jest": "^24.8.0",
+    "lerna": "^3.18.4",
+    "prettier": "^1.18.2",
+    "ts-jest": "^24.0.2",
+    "tslint": "^5.18.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.5.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "jest --runInBand --detectOpenHandles",
+    "lint": "tslint **/*.ts -t verbose",
+    "prepublishOnly": "lerna run tsc && npm run test",
+    "deploy": "lerna publish"
+  }
+}

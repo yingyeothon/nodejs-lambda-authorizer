@@ -1,0 +1,46 @@
+{
+  "name": "@yingyeothon/aws-lambda-jwt-custom-authorizer",
+  "version": "0.2.0",
+  "description": "Simple custom authorizer using JWT for AWS API Gateway",
+  "keywords": [
+    "serverless",
+    "jwt",
+    "auth"
+  ],
+  "author": "jaeyoung.choi <lactrious@gmail.com>",
+  "homepage": "https://toolkit.yyt.life/nodejs/packages/aws-lambda-jwt-custom-authorizer",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yingyeothon/nodejs-toolkit.git"
+  },
+  "scripts": {
+    "tsc": "tsc",
+    "build": "../../node_modules/.bin/tsc",
+    "test": "../../node_modules/.bin/jest --runInBand --detectOpenHandles"
+  },
+  "bugs": {
+    "url": "https://github.com/yingyeothon/nodejs-toolkit/issues"
+  },
+  "dependencies": {
+    "@yingyeothon/aws-lambda-custom-authorizer": "^0.2.0",
+    "@yingyeothon/logger": "^0.2.0",
+    "jsonwebtoken": "^8.5.1"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.31",
+    "@types/jsonwebtoken": "^8.3.2"
+  }
+}

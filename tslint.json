@@ -1,0 +1,15 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:recommended", "tslint-config-prettier"],
+  "jsRules": {},
+  "rules": {
+    "object-literal-sort-keys": false,
+    "no-console": false,
+    "await-promise": true,
+    "no-return-await": true
+  },
+  "rulesDirectory": [],
+  "linterOptions": {
+    "exclude": ["**/node_modules/**", "**/lib/**"]
+  }
+}
