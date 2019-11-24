@@ -1,5 +1,8 @@
 import buildAuthrozier, { Authorization } from "..";
 
+const anyContext: any = {};
+const noCallback = () => 0;
+
 const callAuthorizer = (authorizationToken: string) =>
   new Promise<Authorization>(resolve =>
     buildAuthrozier({
@@ -13,8 +16,8 @@ const callAuthorizer = (authorizationToken: string) =>
         authorizationToken,
         methodArn: "method-arn"
       },
-      null,
-      null
+      anyContext,
+      noCallback
     )
   );
 

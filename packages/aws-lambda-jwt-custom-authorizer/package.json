@@ -8,7 +8,7 @@
     "auth"
   ],
   "author": "jaeyoung.choi <lactrious@gmail.com>",
-  "homepage": "https://toolkit.yyt.life/nodejs/packages/aws-lambda-jwt-custom-authorizer",
+  "homepage": "https://github.com/yingyeothon/nodejs-lambda-authorizer/tree/master/packages/aws-lambda-jwt-custom-authorizer",
   "license": "MIT",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",

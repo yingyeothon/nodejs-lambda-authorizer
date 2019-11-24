@@ -2,6 +2,9 @@ import { IBasicCredential } from "@yingyeothon/aws-lambda-custom-authorizer";
 import { CustomAuthorizerResult } from "aws-lambda";
 import buildJWTAuthorizer from "..";
 
+const anyContext: any = {};
+const noCallback = () => 0;
+
 const callAuthorizer = (id: string, password: string) =>
   buildJWTAuthorizer({
     jwtSecret: "test",
@@ -15,14 +18,15 @@ const callAuthorizer = (id: string, password: string) =>
         "Basic " + Buffer.from("test:1234", "utf-8").toString("base64"),
       methodArn: "method-arn"
     },
-    null,
-    null
+    anyContext,
+    noCallback
   ) as Promise<CustomAuthorizerResult>;
 
 test("logged", async () => {
   const policy = await callAuthorizer("test", "1234");
   expect(policy.policyDocument.Statement[0].Effect).toEqual("Allow");
-  expect(policy.context.token).toBeDefined();
+  expect(policy.context).toBeDefined();
+  expect(policy.context!.token).toBeDefined();
 });
 
 test("denied", async () => {

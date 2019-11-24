@@ -7,7 +7,7 @@
     "auth"
   ],
   "author": "jaeyoung.choi <lactrious@gmail.com>",
-  "homepage": "https://toolkit.yyt.life/nodejs/packages/aws-lambda-custom-authorizer",
+  "homepage": "https://github.com/yingyeothon/nodejs-lambda-authorizer/tree/master/packages/aws-lambda-custom-authorizer",
   "license": "MIT",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",

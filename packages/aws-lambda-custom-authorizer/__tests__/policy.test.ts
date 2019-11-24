@@ -1,6 +1,9 @@
 import { CustomAuthorizerResult } from "aws-lambda";
 import buildAuthrozier from "..";
 
+const anyContext: any = {};
+const noCallback = () => 0;
+
 const callAuthorizer = (allow: boolean) =>
   buildAuthrozier({
     authorize: async () => {
@@ -12,8 +15,8 @@ const callAuthorizer = (allow: boolean) =>
       authorizationToken: "whatever",
       methodArn: "method-arn"
     },
-    null,
-    null
+    anyContext,
+    noCallback
   ) as Promise<CustomAuthorizerResult>;
 
 test("accepted", async () => {

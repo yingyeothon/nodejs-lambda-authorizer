@@ -1,5 +1,8 @@
 import buildAuthrozier from "..";
 
+const anyContext: any = {};
+const noCallback = () => 0;
+
 const callAuthorizer = ({
   allow,
   errorMessage
@@ -22,8 +25,8 @@ const callAuthorizer = ({
         authorizationToken: "whatever",
         methodArn: "method-arn"
       },
-      null,
-      null
+      anyContext,
+      noCallback
     );
     // No error in here.
     resolve(null);
@@ -37,5 +40,6 @@ test("accepted", async () => {
 test("error-in-authorizer", async () => {
   const errorMessage = "NotAllowed";
   const error = await callAuthorizer({ allow: "error", errorMessage });
-  expect(error.message).toEqual(errorMessage);
+  expect(error).toBeDefined();
+  expect(error!.message).toEqual(errorMessage);
 });

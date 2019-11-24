@@ -1,9 +1,10 @@
 "use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
@@ -32,13 +33,16 @@ const defaultErrorHandler = (logger) => (error) => {
     logger.error(error);
     throw new Error(http401Error);
 };
-const buildAuthorizer = ({ authorize, onError: maybeOnError, logger = logger_1.nullLogger }) => (event) => __awaiter(this, void 0, void 0, function* () {
+const buildAuthorizer = ({ authorize, onError: maybeOnError, logger = logger_1.nullLogger }) => (event) => __awaiter(void 0, void 0, void 0, function* () {
     let authorized = {
         allow: false
     };
     try {
         logger.debug(`authorization
     Token`, event.authorizationToken);
+        if (event.authorizationToken === undefined) {
+            throw new Error(`No authorizationToken`);
+        }
         const authorization = parseAuthorization(event.authorizationToken);
         logger.debug(`authorization`, authorization);
         authorized = yield authorize(authorization);

@@ -1,6 +1,5 @@
 import { ILogger, nullLogger } from "@yingyeothon/logger";
 import {
-  AuthResponse,
   AuthResponseContext,
   CustomAuthorizerHandler,
   CustomAuthorizerResult
@@ -86,6 +85,10 @@ const buildAuthorizer = ({
     Token`,
       event.authorizationToken
     );
+    if (event.authorizationToken === undefined) {
+      throw new Error(`No authorizationToken`);
+    }
+    
     const authorization = parseAuthorization(event.authorizationToken);
     logger.debug(`authorization`, authorization);
 
