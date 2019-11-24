@@ -1,6 +1,6 @@
 {
   "name": "@yingyeothon/aws-lambda-custom-authorizer",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Simple custom authorizer of AWS Lambda for API Gateway",
   "keywords": [
     "serverless",

@@ -1,6 +1,6 @@
 {
   "name": "@yingyeothon/aws-lambda-jwt-custom-authorizer",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Simple custom authorizer using JWT for AWS API Gateway",
   "keywords": [
     "serverless",
@@ -35,7 +35,7 @@
     "url": "https://github.com/yingyeothon/nodejs-toolkit/issues"
   },
   "dependencies": {
-    "@yingyeothon/aws-lambda-custom-authorizer": "^0.2.0",
+    "@yingyeothon/aws-lambda-custom-authorizer": "^0.2.1",
     "@yingyeothon/logger": "^0.2.0",
     "jsonwebtoken": "^8.5.1"
   },
